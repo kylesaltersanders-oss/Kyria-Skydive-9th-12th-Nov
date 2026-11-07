@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Moruya Week 9–13 Nov</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a five-tile week strip up top, then one card per day in a wrapping grid, then confirm list and contacts */
+:root {
+  --bg: #f3f5f6;
+  --panel: #ffffff;
+  --ink: #12222b;
+  --muted: #5b6b74;
+  --line: #d9e0e3;
+  --sea: #0f6b85;
+  --sea-soft: #e2f0f4;
+  --go: #1f8a4c;
+  --maybe: #c58a12;
+  --no: #b6423a;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --r: 10px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0d171c; --panel: #14222a; --ink: #e6eef1; --muted: #93a6ae; --line: #24363f;
+  --sea: #5bbad4; --sea-soft: #173540; --go: #4cc47e; --maybe: #e2ad3b; --no: #e57369; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #0d171c; --panel: #14222a; --ink: #e6eef1; --muted: #93a6ae; --line: #24363f;
+  --sea: #5bbad4; --sea-soft: #173540; --go: #4cc47e; --maybe: #e2ad3b; --no: #e57369; color-scheme: dark; }
+
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 76rem; margin-inline: auto; padding-block: 28px 48px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 28px; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(1.9rem, 4vw, 2.6rem); font-weight: 700; letter-spacing: -0.01em; }
+h2 { font-size: 1.15rem; font-weight: 700; }
+.lede { margin: 6px 0 0; color: var(--muted); max-width: 65ch; }
+.eyebrow { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sea); }
+
+/* week strip */
+.strip { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+.tile { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 12px; display: grid; gap: 4px; text-decoration: none; color: inherit; min-width: 0; }
+.tile:hover { border-color: var(--sea); }
+.tile:focus-visible { outline: 2px solid var(--sea); outline-offset: 2px; }
+.t-day { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.t-date { font-family: var(--display); font-size: 1.7rem; font-weight: 700; line-height: 1; }
+.t-wx { font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.t-wind { font-family: var(--mono); font-size: 0.8rem; font-variant-numeric: tabular-nums; }
+.t-pick { display: flex; align-items: center; gap: 6px; font-weight: 600; font-size: 0.9rem; margin-top: 4px; }
+@media (max-width: 640px) { .strip { grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr)); } }
+
+/* lights */
+.dot { width: 0.7rem; height: 0.7rem; border-radius: 50%; flex: none; display: inline-block; }
+.go .dot, .dot.go { background: var(--go); }
+.maybe .dot, .dot.maybe { background: var(--maybe); border-radius: 2px; transform: rotate(45deg) scale(0.85); }
+.no .dot, .dot.no { background: var(--no); border-radius: 2px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 0.85rem; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+
+/* day cards */
+.days { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 21rem), 1fr)); }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 18px; display: grid; gap: 14px; align-content: start; min-width: 0; scroll-margin-top: 16px; }
+.card:target { border-color: var(--sea); box-shadow: 0 0 0 1px var(--sea); }
+.c-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.c-date { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
+.c-title { font-size: 1.35rem; font-weight: 700; }
+.wx { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 0.85rem; background: var(--sea-soft); border-radius: 8px; padding: 8px 10px; font-variant-numeric: tabular-nums; }
+.wx b { font-weight: 600; }
+.acts { display: grid; gap: 6px; }
+.act { display: grid; grid-template-columns: 5.6rem minmax(0, 1fr); gap: 2px 10px; align-items: baseline; padding-block: 6px; border-top: 1px solid var(--line); }
+.act:first-child { border-top: 0; }
+.a-name { display: inline-flex; align-items: center; gap: 7px; font-weight: 600; font-size: 0.9rem; }
+.a-why { font-size: 0.85rem; min-width: 0; }
+.no .a-why { color: var(--muted); }
+.plan { list-style: none; margin: 0; padding: 0; display: grid; }
+.plan li { display: grid; grid-template-columns: 4.6rem minmax(0, 1fr); gap: 10px; padding-block: 7px; border-top: 1px dashed var(--line); font-size: 0.9rem; }
+.plan time { font-family: var(--mono); font-size: 0.8rem; color: var(--sea); font-variant-numeric: tabular-nums; padding-top: 1px; }
+.plan .note { display: block; color: var(--muted); font-size: 0.82rem; }
+.alt { font-size: 0.85rem; border-left: 3px solid var(--maybe); padding: 4px 0 4px 10px; margin: 0; }
+
+/* bottom */
+.two { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 18px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.checks label { display: grid; grid-template-columns: auto minmax(0,1fr); gap: 10px; align-items: start; font-size: 0.9rem; cursor: pointer; }
+.checks input { width: 1.05rem; height: 1.05rem; margin-top: 2px; accent-color: var(--sea); }
+.checks input:checked + span { color: var(--muted); text-decoration: line-through; }
+.contacts { display: grid; gap: 10px; margin: 0; }
+.contacts div { display: grid; gap: 1px; }
+.contacts dt { font-weight: 600; font-size: 0.9rem; }
+.contacts dd { margin: 0; font-size: 0.85rem; color: var(--muted); }
+a { color: var(--sea); text-underline-offset: 2px; }
+.mono { font-family: var(--mono); user-select: all; }
+.foot { font-size: 0.8rem; color: var(--muted); max-width: 75ch; margin: 0; }
+@media (prefers-reduced-motion: no-preference) { .tile, .card { transition: border-color .15s ease; } }
+</style>
+<style>body{margin:0}</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Kyle and Maria · Moruya Heads</div>
+    <h1>Moruya week, Mon 9 to Fri 13 November</h1>
+    <p class="lede">Based at SKYONE Moruya with the rooftop tent. Jump on the calm days, climb on the cloudy one, tennis when the wind is up. Wind is checked against your 15-knot limit.</p>
+  </header>
+
+  <nav class="strip" aria-label="Week at a glance">
+    <a class="tile" href="#mon"><span class="t-day">Mon</span><span class="t-date">9</span><span class="t-wx">☁︎ 19° / 9°</span><span class="t-wind">S 8–14 kn, easing</span><span class="t-pick go"><span class="dot"></span>Drive · tennis</span></a>
+    <a class="tile" href="#tue"><span class="t-day">Tue</span><span class="t-date">10</span><span class="t-wx">☀︎ 21° / 8°</span><span class="t-wind">Light, E 8–11 kn PM</span><span class="t-pick go"><span class="dot"></span>Jump day</span></a>
+    <a class="tile" href="#wed"><span class="t-day">Wed</span><span class="t-date">11</span><span class="t-wx">⛈ 23° / 11°</span><span class="t-wind">Light, E–SE 8–11 kn PM</span><span class="t-pick maybe"><span class="dot"></span>Early loads, storm watch</span></a>
+    <a class="tile" href="#thu"><span class="t-day">Thu</span><span class="t-date">12</span><span class="t-wx">🌦 21° / 12°</span><span class="t-wind">Light, E–SE 8–11 kn</span><span class="t-pick maybe"><span class="dot"></span>Flex: climb or jump</span></a>
+    <a class="tile" href="#fri"><span class="t-day">Fri</span><span class="t-date">13</span><span class="t-wx">⛅ 23° / 12°</span><span class="t-wind">Light, E–NE 8–14 kn</span><span class="t-pick go"><span class="dot"></span>Early loads, home</span></a>
+  </nav>
+
+  <div class="legend" aria-label="Legend">
+    <span class="go"><span class="dot"></span>Go</span>
+    <span class="maybe"><span class="dot"></span>Maybe, check on the day</span>
+    <span class="no"><span class="dot"></span>Skip</span>
+  </div>
+
+  <section class="days" aria-label="Daily plan">
+
+    <article class="card" id="mon">
+      <div class="c-head"><h2 class="c-title">Drive down, tennis arvo</h2><span class="c-date">MON 9 NOV</span></div>
+      <div class="wx"><span><b>19° / 9°</b></span><span>Cloudy</span><span>Slight chance of an early shower</span><span>SW then S 8–14 kn AM, light by evening</span></div>
+      <div class="acts">
+        <div class="act maybe"><span class="a-name"><span class="dot"></span>Skydive</span><span class="a-why">Southerly is under 15 kn but gusts aren't forecast. Jump late if it has eased</span></div>
+        <div class="act go"><span class="a-name"><span class="dot"></span>Tennis</span><span class="a-why">Easy win after the drive</span></div>
+        <div class="act maybe"><span class="a-name"><span class="dot"></span>Climb</span><span class="a-why">Driest rock of the week. Bingie Point 2pm if you'd rather climb than hit</span></div>
+      </div>
+      <ol class="plan">
+        <li><time>7:30am</time><span>Drop Arty at daycare<span class="note">Car packed Sunday night</span></span></li>
+        <li><time>7:45am</time><span>Leave Randwick<span class="note">About 4h45 via the Princes Hwy, one food stop around Milton or Ulladulla</span></span></li>
+        <li><time>12:30pm</time><span>Arrive SKYONE Moruya<span class="note">Check in with licences, logbooks and APF details. Set up camp</span></span></li>
+        <li><time>3:00pm</time><span>Tennis at Moruya Tennis Club<span class="note">Shore St. Or a late load if the wind has dropped and they're flying</span></span></li>
+        <li><time>Evening</time><span>Dinner in Moruya, early night</span></li>
+      </ol>
+    </article>
+
+    <article class="card" id="tue">
+      <div class="c-head"><h2 class="c-title">Big jump day</h2><span class="c-date">TUE 10 NOV</span></div>
+      <div class="wx"><span><b>21° / 8°</b></span><span>Sunny</span><span>No rain</span><span>Light AM, E 8–11 kn PM</span></div>
+      <div class="acts">
+        <div class="act go"><span class="a-name"><span class="dot"></span>Skydive</span><span class="a-why">The only clear, dry day of the week. Fill it</span></div>
+        <div class="act maybe"><span class="a-name"><span class="dot"></span>Tennis</span><span class="a-why">Evening hit under lights if you still have legs</span></div>
+        <div class="act no"><span class="a-name"><span class="dot"></span>Climb</span><span class="a-why">Don't trade a perfect jump day</span></div>
+      </div>
+      <ol class="plan">
+        <li><time>7:00am</time><span>Check the ops update and wind</span></li>
+        <li><time>8:00am</time><span>Manifest for the first load<span class="note">Mornings are calmest. Front-load your jumps</span></span></li>
+        <li><time>Midday</time><span>Lunch on site between loads</span></li>
+        <li><time>5:30pm</time><span>Optional hit at Moruya Tennis Club</span></li>
+        <li><time>Night</time><span>Coldest night, about 8°C<span class="note">Warm layers in the tent</span></span></li>
+      </ol>
+    </article>
+
+    <article class="card" id="wed">
+      <div class="c-head"><h2 class="c-title">Early loads, storm watch</h2><span class="c-date">WED 11 NOV</span></div>
+      <div class="wx"><span><b>23° / 11°</b></span><span>Partly cloudy</span><span>Medium chance of showers, mainly PM. Possible storm</span><span>Light, E–SE 8–11 kn PM</span></div>
+      <div class="acts">
+        <div class="act maybe"><span class="a-name"><span class="dot"></span>Skydive</span><span class="a-why">Wind is fine. Storms will stop ops, so jump early and watch the radar</span></div>
+        <div class="act maybe"><span class="a-name"><span class="dot"></span>Tennis</span><span class="a-why">Fill a stand-down gap between showers</span></div>
+        <div class="act no"><span class="a-name"><span class="dot"></span>Climb</span><span class="a-why">Storm risk on an exposed sea cliff</span></div>
+      </div>
+      <ol class="plan">
+        <li><time>7:00am</time><span>Ops, wind and radar check</span></li>
+        <li><time>7:30am</time><span>Get on the first loads</span></li>
+        <li><time>Midday</time><span>Likely stand-down as storms build</span></li>
+        <li><time>Afternoon</time><span>Tennis in a dry window, or rest and repack</span></li>
+        <li><time>Evening</time><span>Dinner in town. Check Thursday's radar before bed</span></li>
+      </ol>
+    </article>
+
+    <article class="card" id="thu">
+      <div class="c-head"><h2 class="c-title">Flex day: climb or jump</h2><span class="c-date">THU 12 NOV</span></div>
+      <div class="wx"><span><b>21° / 12°</b></span><span>Cloudy</span><span>Medium chance of showers, mainly AM</span><span>Light, E–SE 8–11 kn</span></div>
+      <div class="acts">
+        <div class="act maybe"><span class="a-name"><span class="dot"></span>Climb</span><span class="a-why">Cool and overcast suits Bingie Point once morning showers clear and the rock dries</span></div>
+        <div class="act maybe"><span class="a-name"><span class="dot"></span>Skydive</span><span class="a-why">Wind is fine. Depends on cloud base after the showers</span></div>
+        <div class="act go"><span class="a-name"><span class="dot"></span>Tennis</span><span class="a-why">Reliable fallback, synthetic grass drains fast</span></div>
+      </div>
+      <ol class="plan">
+        <li><time>7:00am</time><span>Check radar, cloud base and tide</span></li>
+        <li><time>Morning</time><span>Showers: slow breakfast, tennis when it clears</span></li>
+        <li><time>11:00am</time><span>If dry, drive to Bingie Point<span class="note">About 25 minutes south. Climb until about 3pm, off any wet rock</span></span></li>
+        <li><time>Afternoon</time><span>Or loads at the DZ if the cloud lifts</span></li>
+        <li><time>Evening</time><span>Pack everything except rigs and tent</span></li>
+      </ol>
+    </article>
+
+    <article class="card" id="fri">
+      <div class="c-head"><h2 class="c-title">Early loads, drive home</h2><span class="c-date">FRI 13 NOV</span></div>
+      <div class="wx"><span><b>23° / 12°</b></span><span>Partly cloudy</span><span>Slight chance of a shower</span><span>Light AM, E–NE 8–14 kn during the day</span></div>
+      <div class="acts">
+        <div class="act go"><span class="a-name"><span class="dot"></span>Skydive</span><span class="a-why">First loads, before the north-easterly builds</span></div>
+        <div class="act maybe"><span class="a-name"><span class="dot"></span>Climb</span><span class="a-why">Nowra on the way home if Thursday's climb didn't happen</span></div>
+        <div class="act no"><span class="a-name"><span class="dot"></span>Tennis</span><span class="a-why">Travel day</span></div>
+      </div>
+      <ol class="plan">
+        <li><time>7:00am</time><span>First load</span></li>
+        <li><time>11:00am</time><span>Last jump, pack rigs and tent</span></li>
+        <li><time>12:00pm</time><span>Leave Moruya</span></li>
+        <li><time>~5:00pm</time><span>Home in Randwick</span></li>
+      </ol>
+      <p class="alt">Option B: leave 6am, climb Thompson's Sunrise at Nowra 8:30 to 11:30, home about 2:15pm. Use this if you need to be back for an afternoon pick-up.</p>
+    </article>
+
+  </section>
+
+  <section class="two">
+    <div class="panel">
+      <h2>Confirm before Monday</h2>
+      <ul class="checks">
+        <li><label><input type="checkbox" id="c1"><span>SKYONE is running fun jumper loads Mon to Fri (weekday ops aren't published online)</span></label></li>
+        <li><label><input type="checkbox" id="c2"><span>SKYONE campsite booked for four nights</span></label></li>
+        <li><label><input type="checkbox" id="c3"><span>Moruya Tennis Club court hire (online booking isn't live, so call)</span></label></li>
+        <li><label><input type="checkbox" id="c4"><span>Arty's pick-ups covered Monday to Friday</span></label></li>
+        <li><label><input type="checkbox" id="c5"><span>Tide times and route picks for Bingie Point</span></label></li>
+        <li><label><input type="checkbox" id="c6"><span>Recheck WillyWeather Sunday night, mainly Wednesday's storm risk</span></label></li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h2>Places</h2>
+      <dl class="contacts">
+        <div><dt>SKYONE Moruya</dt><dd>77 Bruce Cameron Drive, Moruya · <span class="mono">1300 185 180</span></dd></div>
+        <div><dt><a href="https://play.tennis.com.au/moruyatennisclub" target="_blank" rel="noopener">Moruya Tennis Club</a></dt><dd>Shore Street, Moruya · 7 courts, LED lights</dd></div>
+        <div><dt><a href="https://play.tennis.com.au/turossheadtennisclub/Booking" target="_blank" rel="noopener">Tuross Head Tennis Club</a></dt><dd>Backup with online booking, about 20 minutes north</dd></div>
+        <div><dt><a href="https://www.thecrag.com/en/climbing/australia/new-south-wales-and-act/south-coast/area/643784625" target="_blank" rel="noopener">Moruya South Head</a></dt><dd>Small bouldering spot by the cemetery lookout. Pads needed, tide affects access</dd></div>
+        <div><dt><a href="https://www.willyweather.com.au/nsw/south-coast/moruya-airport.html" target="_blank" rel="noopener">WillyWeather: Moruya Airport</a></dt><dd>Forecast, wind and radar for the drop zone</dd></div>
+        <div><dt><a href="https://thecrag.com/en/climbing/australia/nowra/thompsons-sunrise" target="_blank" rel="noopener">Thompson's Sunrise, Nowra</a></dt><dd>Friday option B on the way home</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <p class="foot">Forecast from WillyWeather, Moruya Airport, issued 10:37pm Saturday 7 November. Wind converted from km/h to knots. Gusts aren't forecast, so check the morning ops update against your 15-knot limit.</p>
+</div>
+
+<script>
+(function () {
+  var KEY = "moruya-week-checks";
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { saved = {}; }
+  document.querySelectorAll('.checks input').forEach(function (box) {
+    if (saved[box.id]) box.checked = true;
+    box.addEventListener('change', function () {
+      saved[box.id] = box.checked;
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
+    });
+  });
+})();
+</script>
+</body>
+</html>
