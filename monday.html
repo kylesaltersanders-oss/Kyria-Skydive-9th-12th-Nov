@@ -84,8 +84,15 @@ a { color: var(--sea); text-underline-offset: 2px; }
 .foot { font-size: 0.8rem; color: var(--muted); margin: 0; max-width: 75ch; }
 </style>
 <style>body{margin:0}</style>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0f6b85">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Moruya">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="app.css">
 </head>
-<body>
+<body data-day="mon">
 <div class="wrap">
   <nav class="top" aria-label="Trip days"><span></span><span><a href="index.html">Week overview</a></span><span><a href="tuesday.html">Tue 10 →</a></span></nav>
   <header>
@@ -144,5 +151,6 @@ a { color: var(--sea); text-underline-offset: 2px; }
 })();
 </script>
 
+<script src="app.js"></script>
 </body>
 </html>

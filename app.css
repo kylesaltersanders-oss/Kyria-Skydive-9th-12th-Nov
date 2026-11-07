@@ -1,0 +1,21 @@
+body { padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
+.app-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: flex; justify-content: center; gap: 6px;
+  padding: 8px max(12px, env(safe-area-inset-right, 0px)) calc(8px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px));
+  background: var(--panel); border-top: 1px solid var(--line); box-shadow: 0 -6px 18px rgba(0,0,0,.06); }
+.app-bar a { flex: 1 1 0; max-width: 11rem; display: grid; justify-items: center; gap: 1px; padding: 7px 6px; border-radius: 12px;
+  text-decoration: none; color: var(--muted); min-height: 44px; }
+.app-bar a b { font-family: var(--display); font-size: 0.95rem; font-weight: 700; color: var(--ink); }
+.app-bar a span { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.04em; text-transform: uppercase; }
+.app-bar a.on { background: var(--sea-soft); }
+.app-bar a.on b, .app-bar a.on span { color: var(--sea); }
+.app-bar a:focus-visible { outline: 2px solid var(--sea); outline-offset: 2px; }
+.today-badge { display: inline-block; margin-left: 10px; padding: 1px 8px; border-radius: 999px; background: var(--sea); color: var(--panel); font-size: 0.68rem; letter-spacing: 0.06em; vertical-align: 1px; }
+.now { background: var(--sea); color: var(--panel); border-radius: var(--r); padding: 18px; display: grid; gap: 10px; }
+.now h2 { font-family: var(--display); font-size: 1.5rem; font-weight: 700; margin: 0; color: var(--panel); }
+.now p { margin: 0; opacity: .9; }
+.now .btns { display: flex; flex-wrap: wrap; gap: 8px; }
+.now a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; font-weight: 600; text-decoration: none; }
+.now a.primary { background: var(--panel); color: var(--sea); }
+.now a.secondary { border: 1px solid currentColor; color: var(--panel); }
+.now a:focus-visible { outline: 2px solid var(--panel); outline-offset: 2px; }
+.tile.is-today, .card.is-today { border-color: var(--sea); box-shadow: 0 0 0 2px var(--sea); }

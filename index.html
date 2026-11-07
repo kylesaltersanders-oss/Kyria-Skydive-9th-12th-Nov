@@ -99,8 +99,15 @@ a { color: var(--sea); text-underline-offset: 2px; }
 @media (prefers-reduced-motion: no-preference) { .tile, .card { transition: border-color .15s ease; } }
 </style>
 <style>body{margin:0}</style>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0f6b85">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Moruya">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="app.css">
 </head>
-<body>
+<body data-day="week">
 
 <div class="wrap">
   <header>
@@ -108,13 +115,19 @@ a { color: var(--sea); text-underline-offset: 2px; }
     <h1>Moruya week, Mon 9 to Fri 13 November</h1>
     <p class="lede">Based at SKYONE Moruya with the rooftop tent. Jump on the calm days, climb on the cloudy one, tennis when the wind is up. Wind is checked against your 15-knot limit.</p>
   </header>
+  <section class="now" id="now" hidden aria-live="polite">
+    <h2 id="now-h">Trip plan</h2>
+    <p id="now-p"></p>
+    <div class="btns"><a class="primary" id="now-go" href="monday.html">Open Monday</a><a class="secondary" id="now-next" href="tuesday.html">Then Tuesday</a></div>
+  </section>
+
 
   <nav class="strip" aria-label="Week at a glance">
-    <a class="tile" href="#mon"><span class="t-day">Mon</span><span class="t-date">9</span><span class="t-wx">☁︎ 19° / 9°</span><span class="t-wind">S 8–14 kn, easing</span><span class="t-pick go"><span class="dot"></span>Drive · tennis</span></a>
-    <a class="tile" href="#tue"><span class="t-day">Tue</span><span class="t-date">10</span><span class="t-wx">☀︎ 21° / 8°</span><span class="t-wind">Light, E 8–11 kn PM</span><span class="t-pick go"><span class="dot"></span>Jump day</span></a>
-    <a class="tile" href="#wed"><span class="t-day">Wed</span><span class="t-date">11</span><span class="t-wx">⛈ 23° / 11°</span><span class="t-wind">E–SE 11–16 kn</span><span class="t-pick maybe"><span class="dot"></span>Early loads, storm watch</span></a>
-    <a class="tile" href="#thu"><span class="t-day">Thu</span><span class="t-date">12</span><span class="t-wx">☁︎ 21° / 12°</span><span class="t-wind">E–SE 8–11 kn</span><span class="t-pick go"><span class="dot"></span>Climb day</span></a>
-    <a class="tile" href="#fri"><span class="t-day">Fri</span><span class="t-date">13</span><span class="t-wx">⛅ 23° / 12°</span><span class="t-wind">Light, E–NE 8–14 kn</span><span class="t-pick go"><span class="dot"></span>Early loads, home</span></a>
+    <a class="tile" href="monday.html" data-key="mon"><span class="t-day">Mon</span><span class="t-date">9</span><span class="t-wx">☁︎ 19° / 9°</span><span class="t-wind">S 8–14 kn, easing</span><span class="t-pick go"><span class="dot"></span>Drive · tennis</span></a>
+    <a class="tile" href="tuesday.html" data-key="tue"><span class="t-day">Tue</span><span class="t-date">10</span><span class="t-wx">☀︎ 21° / 8°</span><span class="t-wind">Light, E 8–11 kn PM</span><span class="t-pick go"><span class="dot"></span>Jump day</span></a>
+    <a class="tile" href="wednesday.html" data-key="wed"><span class="t-day">Wed</span><span class="t-date">11</span><span class="t-wx">⛈ 23° / 11°</span><span class="t-wind">E–SE 11–16 kn</span><span class="t-pick maybe"><span class="dot"></span>Early loads, storm watch</span></a>
+    <a class="tile" href="thursday.html" data-key="thu"><span class="t-day">Thu</span><span class="t-date">12</span><span class="t-wx">☁︎ 21° / 12°</span><span class="t-wind">E–SE 8–11 kn</span><span class="t-pick go"><span class="dot"></span>Climb day</span></a>
+    <a class="tile" href="friday.html" data-key="fri"><span class="t-day">Fri</span><span class="t-date">13</span><span class="t-wx">⛅ 23° / 12°</span><span class="t-wind">Light, E–NE 8–14 kn</span><span class="t-pick go"><span class="dot"></span>Early loads, home</span></a>
   </nav>
 
   <div class="legend" aria-label="Legend">
@@ -260,5 +273,6 @@ a { color: var(--sea); text-underline-offset: 2px; }
 })();
 </script>
 
+<script src="app.js"></script>
 </body>
 </html>
