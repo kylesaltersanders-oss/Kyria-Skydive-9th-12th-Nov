@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Moruya Tuesday 10 Nov</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: day header with a call strip, weather block with a four-part day band, then schedule, then two-column kit and to-buy lists */
+:root {
+  --bg: #f3f5f6; --panel: #ffffff; --ink: #12222b; --muted: #5b6b74; --line: #d9e0e3;
+  --sea: #0f6b85; --sea-soft: #e2f0f4; --go: #1f8a4c; --maybe: #c58a12; --no: #b6423a;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace; --r: 10px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0d171c; --panel: #14222a; --ink: #e6eef1; --muted: #93a6ae; --line: #24363f;
+  --sea: #5bbad4; --sea-soft: #173540; --go: #4cc47e; --maybe: #e2ad3b; --no: #e57369; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #0d171c; --panel: #14222a; --ink: #e6eef1; --muted: #93a6ae; --line: #24363f;
+  --sea: #5bbad4; --sea-soft: #173540; --go: #4cc47e; --maybe: #e2ad3b; --no: #e57369; color-scheme: dark; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 64rem; margin-inline: auto; padding-block: 24px 48px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 22px; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(1.9rem, 5vw, 2.7rem); font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
+h2 { font-size: 1.15rem; font-weight: 700; }
+h3 { font-size: 0.95rem; font-weight: 700; }
+a { color: var(--sea); text-underline-offset: 2px; }
+.top { display: flex; justify-content: space-between; gap: 8px 16px; flex-wrap: wrap; font-size: 0.85rem; }
+.top a { text-decoration: none; }
+.top a:hover { text-decoration: underline; }
+.eyebrow { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sea); }
+.lede { margin: 8px 0 0; color: var(--muted); max-width: 65ch; }
+.calls { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 560px) { .calls { grid-template-columns: 1fr; } }
+.call { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 12px 14px; display: grid; gap: 4px; min-width: 0; }
+.call-h { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+.call-v { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; margin-left: auto; }
+.go .call-v { color: var(--go); } .maybe .call-v { color: var(--maybe); } .no .call-v { color: var(--no); }
+.call p { margin: 0; font-size: 0.85rem; color: var(--muted); }
+.call.go { border-top: 3px solid var(--go); } .call.maybe { border-top: 3px solid var(--maybe); } .call.no { border-top: 3px solid var(--no); }
+.dot { width: 0.7rem; height: 0.7rem; border-radius: 50%; flex: none; display: inline-block; }
+.go .dot { background: var(--go); }
+.maybe .dot { background: var(--maybe); border-radius: 2px; transform: rotate(45deg) scale(0.85); }
+.no .dot { background: var(--no); border-radius: 2px; }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 18px; display: grid; gap: 14px; min-width: 0; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(7.2rem, 1fr)); gap: 10px; }
+.stat { background: var(--sea-soft); border-radius: 8px; padding: 10px 12px; display: grid; gap: 2px; min-width: 0; }
+.stat span { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.stat b { font-family: var(--display); font-size: 1.35rem; font-weight: 700; line-height: 1.15; font-variant-numeric: tabular-nums; }
+.stat small { font-size: 0.78rem; color: var(--muted); }
+.band { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+@media (max-width: 640px) { .band { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.slot { padding: 10px 12px; display: grid; gap: 3px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); min-width: 0; margin: 0 -1px -1px 0; }
+.slot .when { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sea); }
+.slot .sky { font-weight: 600; font-size: 0.9rem; }
+.slot .wind { font-family: var(--mono); font-size: 0.8rem; font-variant-numeric: tabular-nums; }
+.slot.over .wind { color: var(--no); font-weight: 500; }
+.slot p { margin: 0; font-size: 0.8rem; color: var(--muted); }
+.notes { margin: 0; padding-left: 1.1rem; display: grid; gap: 4px; font-size: 0.88rem; }
+.tides { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 0.85rem; font-variant-numeric: tabular-nums; }
+.tides b { font-weight: 600; }
+.sched { list-style: none; margin: 0; padding: 0; display: grid; }
+.sched li { display: grid; grid-template-columns: 5.2rem minmax(0, 1fr); gap: 12px; padding-block: 10px; border-top: 1px solid var(--line); }
+.sched li:first-child { border-top: 0; }
+.sched time { font-family: var(--mono); font-size: 0.82rem; color: var(--sea); font-variant-numeric: tabular-nums; padding-top: 1px; }
+.sched strong { display: block; font-weight: 600; }
+.sched span { display: block; font-size: 0.86rem; color: var(--muted); }
+.sched .tag { display: inline-block; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.05em; text-transform: uppercase; border: 1px solid var(--line); border-radius: 999px; padding: 0 7px; margin-top: 4px; color: var(--muted); }
+.two { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); }
+.group { display: grid; gap: 6px; }
+.checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; }
+.checks label { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px; align-items: start; font-size: 0.9rem; cursor: pointer; }
+.checks input { width: 1.05rem; height: 1.05rem; margin-top: 2px; accent-color: var(--sea); }
+.checks input:checked + span { color: var(--muted); text-decoration: line-through; }
+.count { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); font-weight: 400; }
+.ph { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.reset { font: inherit; font-size: 0.8rem; color: var(--muted); background: none; border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; cursor: pointer; }
+.reset:hover { color: var(--ink); border-color: var(--muted); }
+.reset:focus-visible, .checks input:focus-visible, a:focus-visible { outline: 2px solid var(--sea); outline-offset: 2px; }
+.plan-b { margin: 0; font-size: 0.88rem; border-left: 3px solid var(--maybe); padding: 4px 0 4px 12px; }
+.foot { font-size: 0.8rem; color: var(--muted); margin: 0; max-width: 75ch; }
+</style>
+<style>body{margin:0}</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="top" aria-label="Trip days"><span><a href="monday.html">← Mon 9</a></span><span><a href="index.html">Week overview</a></span><span><a href="wednesday.html">Wed 11 →</a></span></nav>
+  <header>
+    <div class="eyebrow">Day 2 of 5 · Tuesday 10 November</div>
+    <h1>Tuesday: big jump day</h1>
+    <p class="lede">Sunny, 5% rain chance and light winds until a sea breeze in the afternoon. The best jump day of the week, so get on the first load and fill it.</p>
+  </header>
+  <section class="calls" aria-label="Activity calls"><div class="call go"><div class="call-h"><span class="dot"></span>Skydive<span class="call-v">Go</span></div><p>Light winds all morning, E 8–11 kn in the afternoon. Under your limit all day</p></div>
+<div class="call maybe"><div class="call-h"><span class="dot"></span>Tennis<span class="call-v">Maybe</span></div><p>Evening hit under lights if you still have legs</p></div>
+<div class="call no"><div class="call-h"><span class="dot"></span>Climb<span class="call-v">Skip</span></div><p>Large surf continues, and don&#x27;t trade a perfect jump day</p></div></section>
+  <section class="panel" aria-labelledby="wx-h">
+    <h2 id="wx-h">Weather at Moruya</h2>
+    <div class="stats"><div class="stat"><span>Temp</span><b>21° / 8°</b><small>Sunny</small></div><div class="stat"><span>Rain</span><b>5%</b><small>0 mm</small></div><div class="stat"><span>Wind</span><b>Light → 8–11 kn</b><small>E in the afternoon</small></div><div class="stat"><span>UV</span><b>9</b><small>Very high</small></div><div class="stat"><span>Sun</span><b>5:47 / 7:39</b><small>Rise / set</small></div></div>
+    <div class="band"><div class="slot"><span class="when">Early</span><span class="sky">Sunny, inland fog possible</span><span class="wind">Light</span><p>Calmest air. Be on the first load</p></div><div class="slot"><span class="when">Midday</span><span class="sky">Sunny</span><span class="wind">Light, E building</span><p>Keep jumping</p></div><div class="slot"><span class="when">Afternoon</span><span class="sky">Sunny</span><span class="wind">E 8–11 kn</span><p>Sea breeze. Under limit, may be bumpier under canopy</p></div><div class="slot"><span class="when">Evening</span><span class="sky">Clear</span><span class="wind">Light</span><p>Cold night ahead</p></div></div>
+    <ul class="notes"><li>Coldest night of the trip, about 8°C</li><li>UV 9 all day. Reapply sunscreen between loads</li><li>Large surf continues along the coast</li></ul>
+    <div class="tides" aria-label="Tides at Moruya Heads"><span><b>Low</b> 2:51am 0.63 m</span><span><b>High</b> 9:26am 1.78 m</span><span><b>Low</b> 4:13pm 0.42 m</span><span><b>High</b> 10:10pm 1.29 m</span></div>
+  </section>
+  <section class="panel" aria-labelledby="sc-h">
+    <h2 id="sc-h">Schedule</h2>
+    <ol class="sched"><li><time>6:30am</time><div><strong>Up and coffee</strong><span>Check the ops update and wind</span></div></li><li><time>7:30am</time><div><strong>Gear check</strong><span>Pin checks, altimeters zeroed, audibles on</span></div></li><li><time>8:00am</time><div><strong>First load</strong><span>Manifest early. As many loads as they run</span></div></li><li><time>10:30am</time><div><strong>Refuel</strong><span>Water and electrolytes between loads</span></div></li><li><time>12:30pm</time><div><strong>Lunch on site</strong><span>Packing area or back at camp</span></div></li><li><time>1:30pm</time><div><strong>Afternoon loads</strong><span>Sea breeze builds to 8–11 kn. Debrief landings each load</span></div></li><li><time>5:00pm</time><div><strong>Last load and logbooks</strong><span>Log jumps and get signatures while it&#x27;s fresh</span></div></li><li><time>5:30pm</time><div><strong>Evening hit</strong><span>Moruya Tennis Club under lights</span><em class=tag>Optional</em></div></li><li><time>7:00pm</time><div><strong>Camp dinner</strong><span>Warm layers on, early night</span></div></li></ol>
+    <p class="plan-b"><b>Plan B.</b> If inland fog delays the first load, do a coffee run into Moruya and be back on the DZ by 9am.</p>
+  </section>
+  <section class="panel" aria-labelledby="pk-h">
+    <div class="ph"><h2 id="pk-h">Pack and get</h2><button type="button" class="reset" id="reset">Clear ticks</button></div>
+    <div class="two">
+      <div class="group" style="gap:14px"><div class="group"><h3>Jump day <span class="count" data-count="p0"></span></h3><ul class="checks" id="p0"><li><label><input type="checkbox" id="p0-0"><span>Rigs packed and checked</span></label></li><li><label><input type="checkbox" id="p0-1"><span>Logbooks and pens</span></label></li><li><label><input type="checkbox" id="p0-2"><span>Sunscreen SPF50+ and lip balm</span></label></li><li><label><input type="checkbox" id="p0-3"><span>Hats and sunglasses for the ground</span></label></li><li><label><input type="checkbox" id="p0-4"><span>3 L water each</span></label></li><li><label><input type="checkbox" id="p0-5"><span>Electrolytes</span></label></li></ul></div>
+<div class="group"><h3>Cold night <span class="count" data-count="p1"></span></h3><ul class="checks" id="p1"><li><label><input type="checkbox" id="p1-0"><span>Beanies and puffer jackets</span></label></li><li><label><input type="checkbox" id="p1-1"><span>Thermals for the tent</span></label></li><li><label><input type="checkbox" id="p1-2"><span>Hot drinks kit</span></label></li></ul></div></div>
+      <div class="group" style="gap:14px"><div class="group"><h3>Today <span class="count" data-count="g0"></span></h3><ul class="checks" id="g0"><li><label><input type="checkbox" id="g0-0"><span>Lunch and snacks for the DZ</span></label></li><li><label><input type="checkbox" id="g0-1"><span>Jump ticket credit topped up</span></label></li><li><label><input type="checkbox" id="g0-2"><span>Ice top-up if the esky is warm</span></label></li></ul></div></div>
+    </div>
+  </section>
+  <p class="foot">Forecast from the Bureau of Meteorology (Moruya Heads, issued 2:10am Sun 8 Nov) and WillyWeather (Moruya Airport). Wind converted from km/h to knots, with no gust forecast, so the morning ops call against your 15-knot limit decides. Sun times are approximate. Tides are for Moruya Heads.</p>
+</div>
+<script>
+(function () {
+  var KEY = "moruya-day-tue";
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { saved = {}; }
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('.checks input'));
+  function counts() {
+    document.querySelectorAll('[data-count]').forEach(function (el) {
+      var list = document.getElementById(el.getAttribute('data-count'));
+      var all = list.querySelectorAll('input'), done = list.querySelectorAll('input:checked');
+      el.textContent = done.length + ' of ' + all.length;
+    });
+  }
+  function store() { try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {} }
+  boxes.forEach(function (b) {
+    if (saved[b.id]) b.checked = true;
+    b.addEventListener('change', function () { saved[b.id] = b.checked; store(); counts(); });
+  });
+  var r = document.getElementById('reset');
+  if (r) r.addEventListener('click', function () { boxes.forEach(function (b) { b.checked = false; }); saved = {}; store(); counts(); });
+  counts();
+})();
+</script>
+
+</body>
+</html>

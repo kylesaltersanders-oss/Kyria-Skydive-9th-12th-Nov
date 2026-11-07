@@ -78,6 +78,8 @@ h2 { font-size: 1.15rem; font-weight: 700; }
 .plan li { display: grid; grid-template-columns: 4.6rem minmax(0, 1fr); gap: 10px; padding-block: 7px; border-top: 1px dashed var(--line); font-size: 0.9rem; }
 .plan time { font-family: var(--mono); font-size: 0.8rem; color: var(--sea); font-variant-numeric: tabular-nums; padding-top: 1px; }
 .plan .note { display: block; color: var(--muted); font-size: 0.82rem; }
+.more { font-size: 0.88rem; font-weight: 600; text-decoration: none; }
+.more:hover { text-decoration: underline; }
 .alt { font-size: 0.85rem; border-left: 3px solid var(--maybe); padding: 4px 0 4px 10px; margin: 0; }
 
 /* bottom */
@@ -110,8 +112,8 @@ a { color: var(--sea); text-underline-offset: 2px; }
   <nav class="strip" aria-label="Week at a glance">
     <a class="tile" href="#mon"><span class="t-day">Mon</span><span class="t-date">9</span><span class="t-wx">☁︎ 19° / 9°</span><span class="t-wind">S 8–14 kn, easing</span><span class="t-pick go"><span class="dot"></span>Drive · tennis</span></a>
     <a class="tile" href="#tue"><span class="t-day">Tue</span><span class="t-date">10</span><span class="t-wx">☀︎ 21° / 8°</span><span class="t-wind">Light, E 8–11 kn PM</span><span class="t-pick go"><span class="dot"></span>Jump day</span></a>
-    <a class="tile" href="#wed"><span class="t-day">Wed</span><span class="t-date">11</span><span class="t-wx">⛈ 23° / 11°</span><span class="t-wind">Light, E–SE 8–11 kn PM</span><span class="t-pick maybe"><span class="dot"></span>Early loads, storm watch</span></a>
-    <a class="tile" href="#thu"><span class="t-day">Thu</span><span class="t-date">12</span><span class="t-wx">🌦 21° / 12°</span><span class="t-wind">Light, E–SE 8–11 kn</span><span class="t-pick maybe"><span class="dot"></span>Flex: climb or jump</span></a>
+    <a class="tile" href="#wed"><span class="t-day">Wed</span><span class="t-date">11</span><span class="t-wx">⛈ 23° / 11°</span><span class="t-wind">E–SE 11–16 kn</span><span class="t-pick maybe"><span class="dot"></span>Early loads, storm watch</span></a>
+    <a class="tile" href="#thu"><span class="t-day">Thu</span><span class="t-date">12</span><span class="t-wx">☁︎ 21° / 12°</span><span class="t-wind">E–SE 8–11 kn</span><span class="t-pick go"><span class="dot"></span>Climb day</span></a>
     <a class="tile" href="#fri"><span class="t-day">Fri</span><span class="t-date">13</span><span class="t-wx">⛅ 23° / 12°</span><span class="t-wind">Light, E–NE 8–14 kn</span><span class="t-pick go"><span class="dot"></span>Early loads, home</span></a>
   </nav>
 
@@ -129,7 +131,7 @@ a { color: var(--sea); text-underline-offset: 2px; }
       <div class="acts">
         <div class="act maybe"><span class="a-name"><span class="dot"></span>Skydive</span><span class="a-why">Southerly is under 15 kn but gusts aren't forecast. Jump late if it has eased</span></div>
         <div class="act go"><span class="a-name"><span class="dot"></span>Tennis</span><span class="a-why">Easy win after the drive</span></div>
-        <div class="act maybe"><span class="a-name"><span class="dot"></span>Climb</span><span class="a-why">Driest rock of the week. Bingie Point 2pm if you'd rather climb than hit</span></div>
+        <div class="act no"><span class="a-name"><span class="dot"></span>Climb</span><span class="a-why">Large, powerful surf forecast. Keep off the sea cliffs</span></div>
       </div>
       <ol class="plan">
         <li><time>7:30am</time><span>Drop Arty at daycare<span class="note">Car packed Sunday night</span></span></li>
@@ -138,6 +140,7 @@ a { color: var(--sea); text-underline-offset: 2px; }
         <li><time>3:00pm</time><span>Tennis at Moruya Tennis Club<span class="note">Shore St. Or a late load if the wind has dropped and they're flying</span></span></li>
         <li><time>Evening</time><span>Dinner in Moruya, early night</span></li>
       </ol>
+          <a class="more" href="monday.html">Full day plan, weather and kit list →</a>
     </article>
 
     <article class="card" id="tue">
@@ -155,13 +158,14 @@ a { color: var(--sea); text-underline-offset: 2px; }
         <li><time>5:30pm</time><span>Optional hit at Moruya Tennis Club</span></li>
         <li><time>Night</time><span>Coldest night, about 8°C<span class="note">Warm layers in the tent</span></span></li>
       </ol>
+          <a class="more" href="tuesday.html">Full day plan, weather and kit list →</a>
     </article>
 
     <article class="card" id="wed">
       <div class="c-head"><h2 class="c-title">Early loads, storm watch</h2><span class="c-date">WED 11 NOV</span></div>
-      <div class="wx"><span><b>23° / 11°</b></span><span>Partly cloudy</span><span>Medium chance of showers, mainly PM. Possible storm</span><span>Light, E–SE 8–11 kn PM</span></div>
+      <div class="wx"><span><b>23° / 11°</b></span><span>Partly cloudy</span><span>60% chance of showers, 0–5 mm. Storms possible AM and PM</span><span>Light early, E–SE 11–16 kn during the day</span></div>
       <div class="acts">
-        <div class="act maybe"><span class="a-name"><span class="dot"></span>Skydive</span><span class="a-why">Wind is fine. Storms will stop ops, so jump early and watch the radar</span></div>
+        <div class="act maybe"><span class="a-name"><span class="dot"></span>Skydive</span><span class="a-why">First load only. Wind builds past your limit and storms are possible</span></div>
         <div class="act maybe"><span class="a-name"><span class="dot"></span>Tennis</span><span class="a-why">Fill a stand-down gap between showers</span></div>
         <div class="act no"><span class="a-name"><span class="dot"></span>Climb</span><span class="a-why">Storm risk on an exposed sea cliff</span></div>
       </div>
@@ -172,23 +176,25 @@ a { color: var(--sea); text-underline-offset: 2px; }
         <li><time>Afternoon</time><span>Tennis in a dry window, or rest and repack</span></li>
         <li><time>Evening</time><span>Dinner in town. Check Thursday's radar before bed</span></li>
       </ol>
+          <a class="more" href="wednesday.html">Full day plan, weather and kit list →</a>
     </article>
 
     <article class="card" id="thu">
-      <div class="c-head"><h2 class="c-title">Flex day: climb or jump</h2><span class="c-date">THU 12 NOV</span></div>
-      <div class="wx"><span><b>21° / 12°</b></span><span>Cloudy</span><span>Medium chance of showers, mainly AM</span><span>Light, E–SE 8–11 kn</span></div>
+      <div class="c-head"><h2 class="c-title">Climb Bingie Point</h2><span class="c-date">THU 12 NOV</span></div>
+      <div class="wx"><span><b>21° / 12°</b></span><span>Cloudy</span><span>30% chance of a shower, mostly AM</span><span>E–SE 8–11 kn</span></div>
       <div class="acts">
-        <div class="act maybe"><span class="a-name"><span class="dot"></span>Climb</span><span class="a-why">Cool and overcast suits Bingie Point once morning showers clear and the rock dries</span></div>
-        <div class="act maybe"><span class="a-name"><span class="dot"></span>Skydive</span><span class="a-why">Wind is fine. Depends on cloud base after the showers</span></div>
-        <div class="act go"><span class="a-name"><span class="dot"></span>Tennis</span><span class="a-why">Reliable fallback, synthetic grass drains fast</span></div>
+        <div class="act go"><span class="a-name"><span class="dot"></span>Climb</span><span class="a-why">Overcast and cool. Climb from about 1pm on the falling tide</span></div>
+        <div class="act maybe"><span class="a-name"><span class="dot"></span>Skydive</span><span class="a-why">Morning loads if the cloud base allows</span></div>
+        <div class="act maybe"><span class="a-name"><span class="dot"></span>Tennis</span><span class="a-why">Fallback if the rock is wet or the surf is still big</span></div>
       </div>
       <ol class="plan">
-        <li><time>7:00am</time><span>Check radar, cloud base and tide</span></li>
-        <li><time>Morning</time><span>Showers: slow breakfast, tennis when it clears</span></li>
-        <li><time>11:00am</time><span>If dry, drive to Bingie Point<span class="note">About 25 minutes south. Climb until about 3pm, off any wet rock</span></span></li>
-        <li><time>Afternoon</time><span>Or loads at the DZ if the cloud lifts</span></li>
+        <li><time>7:00am</time><span>Ops and cloud check</span></li>
+        <li><time>7:30am</time><span>Morning loads, if flying</span></li>
+        <li><time>12:30pm</time><span>Drive to Bingie Point<span class="note">About 25 minutes south. High tide 10:35am, low 5:32pm</span></span></li>
+        <li><time>1:00pm</time><span>Climb until about 5pm</span></li>
         <li><time>Evening</time><span>Pack everything except rigs and tent</span></li>
       </ol>
+      <a class="more" href="thursday.html">Full day plan, weather and kit list →</a>
     </article>
 
     <article class="card" id="fri">
@@ -206,6 +212,7 @@ a { color: var(--sea); text-underline-offset: 2px; }
         <li><time>~5:00pm</time><span>Home in Randwick</span></li>
       </ol>
       <p class="alt">Option B: leave 6am, climb Thompson's Sunrise at Nowra 8:30 to 11:30, home about 2:15pm. Use this if you need to be back for an afternoon pick-up.</p>
+          <a class="more" href="friday.html">Full day plan, weather and kit list →</a>
     </article>
 
   </section>
@@ -235,7 +242,7 @@ a { color: var(--sea); text-underline-offset: 2px; }
     </div>
   </section>
 
-  <p class="foot">Forecast from WillyWeather, Moruya Airport, issued 10:37pm Saturday 7 November. Wind converted from km/h to knots. Gusts aren't forecast, so check the morning ops update against your 15-knot limit.</p>
+  <p class="foot">Forecast from the Bureau of Meteorology (Moruya Heads, issued 2:10am Sunday 8 November) and WillyWeather (Moruya Airport). Wind converted from km/h to knots. Gusts aren't forecast, so check the morning ops update against your 15-knot limit.</p>
 </div>
 
 <script>
@@ -252,5 +259,6 @@ a { color: var(--sea); text-underline-offset: 2px; }
   });
 })();
 </script>
+
 </body>
 </html>
