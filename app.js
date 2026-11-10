@@ -1,10 +1,8 @@
 (function () {
   var DAYS = [
-    { key: "mon", date: "2026-11-09", short: "Mon", label: "Monday", file: "monday.html", title: "Drive down, tennis arvo" },
-    { key: "tue", date: "2026-11-10", short: "Tue", label: "Tuesday", file: "tuesday.html", title: "Big jump day" },
-    { key: "wed", date: "2026-11-11", short: "Wed", label: "Wednesday", file: "wednesday.html", title: "First loads, storm watch" },
-    { key: "thu", date: "2026-11-12", short: "Thu", label: "Thursday", file: "thursday.html", title: "Climb Bingie Point" },
-    { key: "fri", date: "2026-11-13", short: "Fri", label: "Friday", file: "friday.html", title: "Early loads, drive home" }
+    {"key": "fri", "date": "2026-11-13", "short": "Fri", "label": "Friday", "file": "friday.html", "title": "Drive up, tennis evening"},
+    {"key": "sat", "date": "2026-11-14", "short": "Sat", "label": "Saturday", "file": "saturday.html", "title": "Jump the morning, storms after lunch"},
+    {"key": "sun", "date": "2026-11-15", "short": "Sun", "label": "Sunday", "file": "sunday.html", "title": "Early loads, drive home"}
   ];
 
   function sydneyDate() {
@@ -54,9 +52,9 @@
       var ms = new Date(DAYS[0].date + "T00:00:00+11:00") - new Date(today + "T00:00:00+11:00");
       var n = Math.round(ms / 86400000);
       h.textContent = n === 1 ? "Trip starts tomorrow" : "Trip starts in " + n + " days";
-      p.textContent = "Monday 9 November. Leave Randwick 7:45am after the daycare drop.";
-      go.textContent = "Open Monday"; go.href = DAYS[0].file;
-      nx.textContent = "Then Tuesday"; nx.href = DAYS[1].file;
+      p.textContent = "Friday 13 November. Leave home at 12pm, on the DZ by about 3:15pm.";
+      go.textContent = "Open Friday"; go.href = DAYS[0].file;
+      nx.textContent = "Then Saturday"; nx.href = DAYS[1].file;
     } else if (phase === "during") {
       h.textContent = "Today: " + DAYS[idx].label;
       p.textContent = DAYS[idx].title + ".";
@@ -69,7 +67,7 @@
     } else {
       h.textContent = "Trip done";
       p.textContent = "Hope the jumps were good. The day plans stay here for reference.";
-      go.textContent = "Open Friday"; go.href = DAYS[4].file;
+      go.textContent = "Open Sunday"; go.href = DAYS[DAYS.length - 1].file;
       nx.hidden = true;
     }
     now.hidden = false;

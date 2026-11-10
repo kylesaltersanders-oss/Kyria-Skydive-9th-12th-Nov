@@ -1,7 +1,7 @@
 {
-  "name": "Moruya Week",
-  "short_name": "Moruya",
-  "description": "Kyle and Maria's Moruya Heads trip, 9 to 13 November",
+  "name": "Elderslie Weekend",
+  "short_name": "Elderslie",
+  "description": "Kyle and Maria's Elderslie skydiving weekend, 13 to 15 November",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

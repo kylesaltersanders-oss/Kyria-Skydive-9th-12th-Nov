@@ -3,11 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Moruya Week 9–13 Nov</title>
+<title>Elderslie Weekend</title>
+<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: a five-tile week strip up top, then one card per day in a wrapping grid, then confirm list and contacts */
+/* Layout: a three-tile week strip up top, then one card per day in a wrapping grid, then confirm list and contacts */
 :root {
   --bg: #f3f5f6;
   --panel: #ffffff;
@@ -40,7 +41,7 @@ h2 { font-size: 1.15rem; font-weight: 700; }
 .eyebrow { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sea); }
 
 /* week strip */
-.strip { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+.strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
 .tile { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 12px; display: grid; gap: 4px; text-decoration: none; color: inherit; min-width: 0; }
 .tile:hover { border-color: var(--sea); }
 .tile:focus-visible { outline: 2px solid var(--sea); outline-offset: 2px; }
@@ -102,33 +103,25 @@ a { color: var(--sea); text-underline-offset: 2px; }
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0f6b85">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Moruya">
+<meta name="apple-mobile-web-app-title" content="Elderslie">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="app.css">
 </head>
 <body data-day="week">
-
 <div class="wrap">
   <header>
-    <div class="eyebrow">Kyle and Maria · Moruya Heads</div>
-    <h1>Moruya week, Mon 9 to Fri 13 November</h1>
-    <p class="lede">Based at SKYONE Moruya with the rooftop tent. Jump on the calm days, climb on the cloudy one, tennis when the wind is up. Wind is checked against your 15-knot limit.</p>
+    <div class="eyebrow">Kyle and Maria · Hunter Valley</div>
+    <h1>Elderslie weekend, Fri 13 to Sun 15 November</h1>
+    <p class="lede">Based at Newcastle Sport Parachute Club, the member-run fun jumper DZ at Elderslie near Branxton, camping on site with the rooftop tent. Jump the mornings before the storms, tennis Friday evening in Branxton. Wind is checked against your 15-knot limit.</p>
   </header>
   <section class="now" id="now" hidden aria-live="polite">
     <h2 id="now-h">Trip plan</h2>
     <p id="now-p"></p>
-    <div class="btns"><a class="primary" id="now-go" href="monday.html">Open Monday</a><a class="secondary" id="now-next" href="tuesday.html">Then Tuesday</a></div>
+    <div class="btns"><a class="primary" id="now-go" href="friday.html">Open Friday</a><a class="secondary" id="now-next" href="saturday.html">Then Saturday</a></div>
   </section>
 
-
-  <nav class="strip" aria-label="Week at a glance">
-    <a class="tile" href="monday.html" data-key="mon"><span class="t-day">Mon</span><span class="t-date">9</span><span class="t-wx">☁︎ 19° / 9°</span><span class="t-wind">S 8–14 kn, easing</span><span class="t-pick go"><span class="dot"></span>Drive · tennis</span></a>
-    <a class="tile" href="tuesday.html" data-key="tue"><span class="t-day">Tue</span><span class="t-date">10</span><span class="t-wx">☀︎ 21° / 8°</span><span class="t-wind">Light, E 8–11 kn PM</span><span class="t-pick go"><span class="dot"></span>Jump day</span></a>
-    <a class="tile" href="wednesday.html" data-key="wed"><span class="t-day">Wed</span><span class="t-date">11</span><span class="t-wx">⛈ 23° / 11°</span><span class="t-wind">E–SE 11–16 kn</span><span class="t-pick maybe"><span class="dot"></span>Early loads, storm watch</span></a>
-    <a class="tile" href="thursday.html" data-key="thu"><span class="t-day">Thu</span><span class="t-date">12</span><span class="t-wx">☁︎ 21° / 12°</span><span class="t-wind">E–SE 8–11 kn</span><span class="t-pick go"><span class="dot"></span>Climb day</span></a>
-    <a class="tile" href="friday.html" data-key="fri"><span class="t-day">Fri</span><span class="t-date">13</span><span class="t-wx">⛅ 23° / 12°</span><span class="t-wind">Light, E–NE 8–14 kn</span><span class="t-pick go"><span class="dot"></span>Early loads, home</span></a>
-  </nav>
+  <nav class="strip" aria-label="Weekend at a glance"><a class="tile" href="friday.html" data-key="fri"><span class="t-day">Fri</span><span class="t-date">13</span><span class="t-wx">⛅ 31° / 15°</span><span class="t-wind">Light, NE–SE 8–11 kn PM</span><span class="t-pick go"><span class="dot"></span>Drive · tennis</span></a><a class="tile" href="saturday.html" data-key="sat"><span class="t-day">Sat</span><span class="t-date">14</span><span class="t-wx">⛈ 35° / 17°</span><span class="t-wind">Light, N–NW 8–11 kn</span><span class="t-pick go"><span class="dot"></span>Jump AM, storms PM</span></a><a class="tile" href="sunday.html" data-key="sun"><span class="t-day">Sun</span><span class="t-date">15</span><span class="t-wx">⛈ 30° / 19°</span><span class="t-wind">Wind TBC</span><span class="t-pick maybe"><span class="dot"></span>Early loads, home</span></a></nav>
 
   <div class="legend" aria-label="Legend">
     <span class="go"><span class="dot"></span>Go</span>
@@ -137,130 +130,49 @@ a { color: var(--sea); text-underline-offset: 2px; }
   </div>
 
   <section class="days" aria-label="Daily plan">
-
-    <article class="card" id="mon">
-      <div class="c-head"><h2 class="c-title">Drive down, tennis arvo</h2><span class="c-date">MON 9 NOV</span></div>
-      <div class="wx"><span><b>19° / 9°</b></span><span>Cloudy</span><span>Slight chance of an early shower</span><span>SW then S 8–14 kn AM, light by evening</span></div>
-      <div class="acts">
-        <div class="act maybe"><span class="a-name"><span class="dot"></span>Skydive</span><span class="a-why">Southerly is under 15 kn but gusts aren't forecast. Jump late if it has eased</span></div>
-        <div class="act go"><span class="a-name"><span class="dot"></span>Tennis</span><span class="a-why">Easy win after the drive</span></div>
-        <div class="act no"><span class="a-name"><span class="dot"></span>Climb</span><span class="a-why">Large, powerful surf forecast. Keep off the sea cliffs</span></div>
-      </div>
-      <ol class="plan">
-        <li><time>7:30am</time><span>Drop Arty at daycare<span class="note">Car packed Sunday night</span></span></li>
-        <li><time>7:45am</time><span>Leave Randwick<span class="note">About 4h45 via the Princes Hwy, one food stop around Milton or Ulladulla</span></span></li>
-        <li><time>12:30pm</time><span>Arrive SKYONE Moruya<span class="note">Check in with licences, logbooks and APF details. Set up camp</span></span></li>
-        <li><time>3:00pm</time><span>Tennis at Moruya Tennis Club<span class="note">Shore St. Or a late load if the wind has dropped and they're flying</span></span></li>
-        <li><time>Evening</time><span>Dinner in Moruya, early night</span></li>
-      </ol>
-          <a class="more" href="monday.html">Full day plan, weather and kit list →</a>
-    </article>
-
-    <article class="card" id="tue">
-      <div class="c-head"><h2 class="c-title">Big jump day</h2><span class="c-date">TUE 10 NOV</span></div>
-      <div class="wx"><span><b>21° / 8°</b></span><span>Sunny</span><span>No rain</span><span>Light AM, E 8–11 kn PM</span></div>
-      <div class="acts">
-        <div class="act go"><span class="a-name"><span class="dot"></span>Skydive</span><span class="a-why">The only clear, dry day of the week. Fill it</span></div>
-        <div class="act maybe"><span class="a-name"><span class="dot"></span>Tennis</span><span class="a-why">Evening hit under lights if you still have legs</span></div>
-        <div class="act no"><span class="a-name"><span class="dot"></span>Climb</span><span class="a-why">Don't trade a perfect jump day</span></div>
-      </div>
-      <ol class="plan">
-        <li><time>7:00am</time><span>Check the ops update and wind</span></li>
-        <li><time>8:00am</time><span>Manifest for the first load<span class="note">Mornings are calmest. Front-load your jumps</span></span></li>
-        <li><time>Midday</time><span>Lunch on site between loads</span></li>
-        <li><time>5:30pm</time><span>Optional hit at Moruya Tennis Club</span></li>
-        <li><time>Night</time><span>Coldest night, about 8°C<span class="note">Warm layers in the tent</span></span></li>
-      </ol>
-          <a class="more" href="tuesday.html">Full day plan, weather and kit list →</a>
-    </article>
-
-    <article class="card" id="wed">
-      <div class="c-head"><h2 class="c-title">Early loads, storm watch</h2><span class="c-date">WED 11 NOV</span></div>
-      <div class="wx"><span><b>23° / 11°</b></span><span>Partly cloudy</span><span>60% chance of showers, 0–5 mm. Storms possible AM and PM</span><span>Light early, E–SE 11–16 kn during the day</span></div>
-      <div class="acts">
-        <div class="act maybe"><span class="a-name"><span class="dot"></span>Skydive</span><span class="a-why">First load only. Wind builds past your limit and storms are possible</span></div>
-        <div class="act maybe"><span class="a-name"><span class="dot"></span>Tennis</span><span class="a-why">Fill a stand-down gap between showers</span></div>
-        <div class="act no"><span class="a-name"><span class="dot"></span>Climb</span><span class="a-why">Storm risk on an exposed sea cliff</span></div>
-      </div>
-      <ol class="plan">
-        <li><time>7:00am</time><span>Ops, wind and radar check</span></li>
-        <li><time>7:30am</time><span>Get on the first loads</span></li>
-        <li><time>Midday</time><span>Likely stand-down as storms build</span></li>
-        <li><time>Afternoon</time><span>Tennis in a dry window, or rest and repack</span></li>
-        <li><time>Evening</time><span>Dinner in town. Check Thursday's radar before bed</span></li>
-      </ol>
-          <a class="more" href="wednesday.html">Full day plan, weather and kit list →</a>
-    </article>
-
-    <article class="card" id="thu">
-      <div class="c-head"><h2 class="c-title">Climb Bingie Point</h2><span class="c-date">THU 12 NOV</span></div>
-      <div class="wx"><span><b>21° / 12°</b></span><span>Cloudy</span><span>30% chance of a shower, mostly AM</span><span>E–SE 8–11 kn</span></div>
-      <div class="acts">
-        <div class="act go"><span class="a-name"><span class="dot"></span>Climb</span><span class="a-why">Overcast and cool. Climb from about 1pm on the falling tide</span></div>
-        <div class="act maybe"><span class="a-name"><span class="dot"></span>Skydive</span><span class="a-why">Morning loads if the cloud base allows</span></div>
-        <div class="act maybe"><span class="a-name"><span class="dot"></span>Tennis</span><span class="a-why">Fallback if the rock is wet or the surf is still big</span></div>
-      </div>
-      <ol class="plan">
-        <li><time>7:00am</time><span>Ops and cloud check</span></li>
-        <li><time>7:30am</time><span>Morning loads, if flying</span></li>
-        <li><time>12:30pm</time><span>Drive to Bingie Point<span class="note">About 25 minutes south. High tide 10:35am, low 5:32pm</span></span></li>
-        <li><time>1:00pm</time><span>Climb until about 5pm</span></li>
-        <li><time>Evening</time><span>Pack everything except rigs and tent</span></li>
-      </ol>
-      <a class="more" href="thursday.html">Full day plan, weather and kit list →</a>
-    </article>
-
     <article class="card" id="fri">
-      <div class="c-head"><h2 class="c-title">Early loads, drive home</h2><span class="c-date">FRI 13 NOV</span></div>
-      <div class="wx"><span><b>23° / 12°</b></span><span>Partly cloudy</span><span>Slight chance of a shower</span><span>Light AM, E–NE 8–14 kn during the day</span></div>
-      <div class="acts">
-        <div class="act go"><span class="a-name"><span class="dot"></span>Skydive</span><span class="a-why">First loads, before the north-easterly builds</span></div>
-        <div class="act maybe"><span class="a-name"><span class="dot"></span>Climb</span><span class="a-why">Nowra on the way home if Thursday's climb didn't happen</span></div>
-        <div class="act no"><span class="a-name"><span class="dot"></span>Tennis</span><span class="a-why">Travel day</span></div>
-      </div>
-      <ol class="plan">
-        <li><time>7:00am</time><span>First load</span></li>
-        <li><time>11:00am</time><span>Last jump, pack rigs and tent</span></li>
-        <li><time>12:00pm</time><span>Leave Moruya</span></li>
-        <li><time>~5:00pm</time><span>Home in Randwick</span></li>
-      </ol>
-      <p class="alt">Option B: leave 6am, climb Thompson's Sunrise at Nowra 8:30 to 11:30, home about 2:15pm. Use this if you need to be back for an afternoon pick-up.</p>
-          <a class="more" href="friday.html">Full day plan, weather and kit list →</a>
+      <div class="c-head"><h2 class="c-title">Drive up, tennis evening</h2><span class="c-date">FRI 13 NOV</span></div>
+      <div class="wx"><span><b>31° / 15°</b></span><span>Partly cloudy</span><span>Slight chance of a shower, storm chance PM</span><span>Light, NE–SE 8–11 kn PM</span></div>
+      <div class="acts"><div class="act maybe"><span class="a-name"><span class="dot"></span>Skydive</span><span class="a-why">Weekday jumps are by arrangement only. Call NSPC Thursday to see if anyone is flying</span></div><div class="act go"><span class="a-name"><span class="dot"></span>Tennis</span><span class="a-why">Branxton Tennis Club from 5pm once the heat drops. Watch the radar for storms</span></div></div>
+      <ol class="plan"><li><time>12:00pm</time><span>Leave home<span class="note">About 2h30 via the M1 and Hunter Expressway</span></span></li><li><time>2:45pm</time><span>Groceries and ice in Branxton<span class="note">No shops near the DZ</span></span></li><li><time>3:15pm</time><span>Arrive NSPC and set up camp<span class="note">Check in with APF cards and logbooks</span></span></li><li><time>5:00pm</time><span>Tennis at Branxton Tennis Club<span class="note">Book online. Watch the radar</span></span></li><li><time>Evening</time><span>Dinner, early night</span></li></ol>
+      <a class="more" href="friday.html">Full day plan, weather and kit list →</a>
+    </article>
+
+    <article class="card" id="sat">
+      <div class="c-head"><h2 class="c-title">Jump the morning, storms after lunch</h2><span class="c-date">SAT 14 NOV</span></div>
+      <div class="wx"><span><b>35° / 17°</b></span><span>Partly cloudy</span><span>High chance of showers, storm likely PM</span><span>Light AM, N–NW 8–11 kn</span></div>
+      <div class="acts"><div class="act go"><span class="a-name"><span class="dot"></span>Skydive</span><span class="a-why">Light winds, under your limit all morning. Jump until the storms build</span></div><div class="act no"><span class="a-name"><span class="dot"></span>Tennis</span><span class="a-why">35° and afternoon storms. Save your legs</span></div></div>
+      <ol class="plan"><li><time>7:30am</time><span>Manifest and briefing<span class="note">Club starts 8am</span></span></li><li><time>8:00am</time><span>First load<span class="note">Mornings are calmest. Front-load your jumps</span></span></li><li><time>1:00pm</time><span>Likely last load<span class="note">Storms build after lunch</span></span></li><li><time>4:30pm</time><span>Radar check<span class="note">Late load only if it clears</span></span></li><li><time>Evening</time><span>Logbooks and camp dinner</span></li></ol>
+      <a class="more" href="saturday.html">Full day plan, weather and kit list →</a>
+    </article>
+
+    <article class="card" id="sun">
+      <div class="c-head"><h2 class="c-title">Early loads, drive home</h2><span class="c-date">SUN 15 NOV</span></div>
+      <div class="wx"><span><b>30° / 19°</b></span><span>Showers increasing</span><span>Storm possible</span><span>Wind not yet detailed</span></div>
+      <div class="acts"><div class="act maybe"><span class="a-name"><span class="dot"></span>Skydive</span><span class="a-why">First loads only, if the morning call is go</span></div><div class="act maybe"><span class="a-name"><span class="dot"></span>Tennis</span><span class="a-why">Short hit at Branxton on the way out if it’s dry</span></div></div>
+      <ol class="plan"><li><time>8:00am</time><span>First load<span class="note">If the morning call is go</span></span></li><li><time>10:30am</time><span>Last jump, pack rigs</span></li><li><time>12:00pm</time><span>Optional hit at Branxton<span class="note">If dry</span></span></li><li><time>1:15pm</time><span>Leave<span class="note">About 2h30 home</span></span></li><li><time>~3:45pm</time><span>Home</span></li></ol>
+      <a class="more" href="sunday.html">Full day plan, weather and kit list →</a>
     </article>
 
   </section>
 
   <section class="two">
     <div class="panel">
-      <h2>Confirm before Monday</h2>
-      <ul class="checks">
-        <li><label><input type="checkbox" id="c1"><span>SKYONE is running fun jumper loads Mon to Fri (weekday ops aren't published online)</span></label></li>
-        <li><label><input type="checkbox" id="c2"><span>SKYONE campsite booked for four nights</span></label></li>
-        <li><label><input type="checkbox" id="c3"><span>Moruya Tennis Club court hire (online booking isn't live, so call)</span></label></li>
-        <li><label><input type="checkbox" id="c4"><span>Arty's pick-ups covered Monday to Friday</span></label></li>
-        <li><label><input type="checkbox" id="c5"><span>Tide times and route picks for Bingie Point</span></label></li>
-        <li><label><input type="checkbox" id="c6"><span>Recheck WillyWeather Sunday night, mainly Wednesday's storm risk</span></label></li>
-      </ul>
+      <h2>Confirm before Friday</h2>
+      <ul class="checks"><li><label><input type="checkbox" id="c1"><span>NSPC flying on Friday (weekday jumps are by arrangement). Call 02 4938 1040</span></label></li><li><label><input type="checkbox" id="c2"><span>Weekend fun jumper loads confirmed, and what visiting jumpers need (APF membership, logbook, reserve date)</span></label></li><li><label><input type="checkbox" id="c3"><span>Camping on site booked. BYO tent, with powered sites and a private caravan available. The caravan is a good storm backup</span></label></li><li><label><input type="checkbox" id="c4"><span>Branxton Tennis Club court booked online for Friday 5pm</span></label></li><li><label><input type="checkbox" id="c5"><span>Current jump ticket price (an older listing shows $42 single, cheaper in blocks)</span></label></li><li><label><input type="checkbox" id="c6"><span>Recheck WillyWeather Thursday night, mainly the weekend storm timing</span></label></li></ul>
     </div>
     <div class="panel">
       <h2>Places</h2>
-      <dl class="contacts">
-        <div><dt>SKYONE Moruya</dt><dd>77 Bruce Cameron Drive, Moruya · <span class="mono">1300 185 180</span></dd></div>
-        <div><dt><a href="https://play.tennis.com.au/moruyatennisclub" target="_blank" rel="noopener">Moruya Tennis Club</a></dt><dd>Shore Street, Moruya · 7 courts, LED lights</dd></div>
-        <div><dt><a href="https://play.tennis.com.au/turossheadtennisclub/Booking" target="_blank" rel="noopener">Tuross Head Tennis Club</a></dt><dd>Backup with online booking, about 20 minutes north</dd></div>
-        <div><dt><a href="https://www.thecrag.com/en/climbing/australia/new-south-wales-and-act/south-coast/area/643784625" target="_blank" rel="noopener">Moruya South Head</a></dt><dd>Small bouldering spot by the cemetery lookout. Pads needed, tide affects access</dd></div>
-        <div><dt><a href="https://www.willyweather.com.au/nsw/south-coast/moruya-airport.html" target="_blank" rel="noopener">WillyWeather: Moruya Airport</a></dt><dd>Forecast, wind and radar for the drop zone</dd></div>
-        <div><dt><a href="https://thecrag.com/en/climbing/australia/nowra/thompsons-sunrise" target="_blank" rel="noopener">Thompson's Sunrise, Nowra</a></dt><dd>Friday option B on the way home</dd></div>
-      </dl>
+      <dl class="contacts"><div><dt><a href="https://nspc.net.au" target="_blank" rel="noopener">Newcastle Sport Parachute Club (Skydive Elderslie)</a></dt><dd>690C Moores Lane, Elderslie, near Branxton · <span class="mono">02 4938 1040</span> · Weekends from 8am · On-site camping</dd></div><div><dt><a href="https://play.tennis.com.au/branxtontennisclub" target="_blank" rel="noopener">Branxton Tennis Club</a></dt><dd>6 Miller Park, Branxton · Book and pay online · About 10 minutes from the DZ</dd></div><div><dt>Camp on Hunter (Elderslie)</dt><dd>Riverside camping about 2 km from Branxton. Backup if on-site camping doesn’t suit</dd></div><div><dt>Drovers Camp</dt><dd>317 Elderslie Road, Branxton. Farm camping about 3 km from town</dd></div><div><dt><a href="https://www.willyweather.com.au/nsw/hunter/branxton.html" target="_blank" rel="noopener">WillyWeather: Branxton</a></dt><dd>Forecast, wind and radar for the DZ</dd></div><div><dt>Skydive Newcastle, Belmont</dt><dd>Tandem beach operation at Lake Macquarie. Not the fun jumper DZ</dd></div></dl>
     </div>
   </section>
 
-  <p class="foot">Forecast from the Bureau of Meteorology (Moruya Heads, issued 2:10am Sunday 8 November) and WillyWeather (Moruya Airport). Wind converted from km/h to knots. Gusts aren't forecast, so check the morning ops update against your 15-knot limit.</p>
+  <p class="foot">Forecast from WillyWeather Branxton (Bureau of Meteorology data), issued 7:07pm Tuesday 10 November. Wind converted from km/h to knots. Gusts aren’t forecast and storms bring sudden gust fronts, so the morning ops call against your 15-knot limit decides. Sun times are approximate.</p>
 </div>
 
 <script>
 (function () {
-  var KEY = "moruya-week-checks";
+  var KEY = "elderslie-weekend-checks";
   var saved = {};
   try { saved = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { saved = {}; }
   document.querySelectorAll('.checks input').forEach(function (box) {
@@ -272,7 +184,6 @@ a { color: var(--sea); text-underline-offset: 2px; }
   });
 })();
 </script>
-
 <script src="app.js"></script>
 </body>
 </html>
